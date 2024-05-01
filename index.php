@@ -20,20 +20,18 @@
             [0, 1, 1],
             [0, 0, 1],
             [1, 0, 1]
-        ];
-
-        echo 'matriz 1: <br>[1, 0, 1, 1, 0, 1]<br>
-                        [0, 0, 1, 1, 0, 1]<br>
-                        [0, 1, 1, 1, 0, 1]<br>
-                        [0, 0, 0, 1, 0, 1]<br>
-                        [1, 1, 0, 0, 0, 1]<br>
-                        Resultado: ';
+        ];   
 
         function explorarMatriz($matriz, $coordenadasIniciais) {
             $linhas = count($matriz); // número de linhas (M)
             $colunas = count($matriz[0]); // número de colunas (N)
 
             $x = $coordenadasIniciais; // coordenadas iniciais
+
+            foreach ($matriz as $linha) {
+                echo "[" . implode(", ", $linha) . "]<br>";
+            }
+            echo 'Resultado:';
 
             while (true) {
                 $esquerda = $x[1] - 1 >= 0 ? $matriz[$x[0]][$x[1] - 1] : null;
@@ -62,18 +60,11 @@
                     break;
                 }
             }
-
-            echo '<br>';
         }
 
-        
         explorarMatriz($matriz, [0, 1]); // Explorar a primeira matriz com coordenadas [0, 1]
         
-        echo '---------------------- <br>';
-        echo 'matriz 2: <br>[0, 1, 1]<br>
-                        [0, 0, 1]<br>
-                        [1, 0, 1]<br>
-                        Resultado: ';
+        echo '<br>---------------------- <br>';
 
         explorarMatriz($matriz2, [0, 0]); // Explorar a segunda matriz com coordenadas [0, 0]
 
